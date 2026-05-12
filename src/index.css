@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4.7%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 25 45% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 25 45% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 25 45% 53%;
+    --radius: 8px;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: auto;
+  }
+
+  body {
+    font-family: "Inter", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background-color: #0b0b0b;
+    color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: #c27a4e;
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: "Instrument Serif", Georgia, serif;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.01);
+    box-shadow: rgba(255, 255, 255, 0.05) 0px 1px 0px inset,
+      rgba(0, 0, 0, 0.1) 0px 10px 20px inset,
+      rgba(0, 0, 0, 0.5) 0px -15px 40px inset;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .glass-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0.15) 80%,
+      rgba(255, 255, 255, 0.5) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .glass-panel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 30%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    mix-blend-mode: overlay;
+  }
+
+  .text-accent {
+    color: #c27a4e;
+  }
+
+  .bg-accent {
+    background-color: #c27a4e;
+  }
+
+  .border-accent {
+    border-color: rgba(194, 122, 78, 0.3);
+  }
+}
